@@ -518,19 +518,25 @@ class WanS2V:
         context_null = None
         if n_prompt == "": #case 3
             n_prompt = self.sample_neg_prompt
+
+        # allow list[str] for batched usage
+        input_prompts = input_prompt if isinstance(input_prompt, (list, tuple)) else [input_prompt]
+        neg_prompts = None
+        if n_prompt is not None:
+            neg_prompts = n_prompt if isinstance(n_prompt, (list, tuple)) else [n_prompt]
             
         if not self.t5_cpu:
             self.text_encoder.model.to(self.device)
-            context = self.text_encoder([input_prompt], self.device)
-            if n_prompt is not None:
-                context_null = self.text_encoder([n_prompt], self.device)
+            context = self.text_encoder(input_prompts, self.device)
+            if neg_prompts is not None:
+                context_null = self.text_encoder(neg_prompts, self.device)
             if offload_model:
                 self.text_encoder.model.cpu()
         else:
-            context = self.text_encoder([input_prompt], torch.device('cpu'))
+            context = self.text_encoder(input_prompts, torch.device('cpu'))
             context = [t.to(self.device) for t in context]
-            if n_prompt is not None:
-                context_null = self.text_encoder([n_prompt], torch.device('cpu'))
+            if neg_prompts is not None:
+                context_null = self.text_encoder(neg_prompts, torch.device('cpu'))
                 context_null = [t.to(self.device) for t in context_null]
                 
         return context, context_null

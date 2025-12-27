@@ -1,0 +1,121 @@
+% CVPR 2026 Paper Template; see https://github.com/cvpr-org/author-kit
+
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+%%%%%%%%% PAPER TYPE  - PLEASE UPDATE FOR FINAL VERSION
+\usepackage{cvpr}              % To produce the CAMERA-READY version
+
+% \usepackage[review]{cvpr}      % To produce the REVIEW version
+% \usepackage[pagenumbers]{cvpr} % To force page numbers, e.g. for an arXiv version
+
+% Import additional packages in the preamble file, before hyperref
+\input{preamble}
+
+% It is strongly recommended to use hyperref, especially for the review version.
+% hyperref with option pagebackref eases the reviewers' job.
+% Please disable hyperref *only* if you encounter grave issues, 
+% e.g. with the file validation for the camera-ready version.
+%
+% If you comment hyperref and then uncomment it, you should delete *.aux before re-running LaTeX.
+% (Or just hit 'q' on the first LaTeX run, let it finish, and you should be clear).
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+
+\usepackage{bbding}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs} % 用于 \toprule, \midrule, \bottomrule
+\usepackage{multirow} % 用于 \multirow
+%%%%%%%%% PAPER ID  - PLEASE UPDATE
+\def\paperID{} % *** Enter the Paper ID here
+\def\confName{}
+\def\confYear{}
+
+%%%%%%%%% TITLE - PLEASE UPDATE
+\title{Live Avatar: Streaming Real-time Audio-Driven Avatar Generation with Infinite Length}
+
+%%%%%%%%% AUTHORS - PLEASE UPDATE
+%%%%%%%%% AUTHORS - PLEASE UPDATE
+% \author{
+% Yubo Huang$^{1,2}$ \quad Hailong Guo$^{1,3}$ \quad Fangtai Wu$^{1,4}$ \quad Shifeng Zhang$^{1}$ \quad Shijie Huang$^{1}$ \\
+% Qijun Gan$^{4}$ \quad Lin Liu$^{2}$ \quad Sirui Zhao$^{2, \ast}$ \quad Enhong Chen$^{2, \ast}$ \quad Jiaming Liu$^{1, \ddagger}$ \quad Steven Hoi$^{1}$ \\
+% \\
+% % 单位列表
+% $^1$ Alibaba Group \quad $^2$ University of Science and Technology of China\\
+% $^3$ Beijing University of Posts and Telecommunications\quad $^4$ Zhejiang University\\
+% \\
+% % 邮箱地址请在此处填写，一般放在作者名下方或单位列表下方。
+% % 您可以把所有作者的邮箱统一放在一行或多行，用 \quad 隔开。
+% {\tt\small \{snake1124\}@mail.ustc.edu.cn} \\
+% {\tt\small  \{liujiaming.ljl\}@alibaba-inc.com} \\
+% % \vspace{0.1cm}
+% % 特殊贡献标记
+% {\small $\ast$ Corresponding authors.} \\
+% {\small $\ddagger$ Project Leader.}
+% }
+\author{
+Yubo Huang$^{1,2}$ \quad Hailong Guo$^{2,3}$ \quad Fangtai Wu$^{2,4}$ \quad Shifeng Zhang$^{2}$ \quad Shijie Huang$^{2}$ \\
+Qijun Gan$^{4}$ \quad Lin Liu$^{1}$ \quad Sirui Zhao$^{1, \ast}$ \quad Enhong Chen$^{1, \ast}$ \quad Jiaming Liu$^{2, \ddagger}$ \quad Steven Hoi$^{2}$ \\
+\\
+$^1$ University of Science and Technology of China \quad $^2$ Alibaba Group\\
+$^3$ Beijing University of Posts and Telecommunications\quad $^4$ Zhejiang University\\
+\\
+{\ snake1124@mail.ustc.edu.cn} \\
+{\ liujiaming.ljl@alibaba-inc.com} \\
+{\small $\ast$ Corresponding authors.} \\
+{\small $\ddagger$ Project Leader.}
+}
+% Optionally, if space allows, you can put emails:
+% {\tt\small \{yubo.huang, jiaming.liu, steven.hoi\}@alibaba-inc.com}
+
+
+% \author{First Author\\
+% Institution1\\
+% Institution1 address\\
+% {\tt\small firstauthor@i1.org}
+% % For a paper whose authors are all at the same institution,
+% % omit the following lines up until the closing ``}''.
+% % Additional authors and addresses can be added with ``\and'',
+% % just like the second author.
+% % To save space, use either the email address or home page, not both
+% \and
+% Second Author\\
+% Institution2\\
+% First line of institution2 address\\
+% {\tt\small secondauthor@i2.org}
+% }
+
+\begin{document}
+\twocolumn[{%
+\renewcommand\twocolumn[1][]{#1}%
+\maketitle
+\vspace{-1em}
+
+\includegraphics[width=\linewidth]{images/main/liveavatar1.pdf}
+\captionof{figure}{We propose Live Avatar, a powerful real-time streaming model capable of infinitely long audio-driven avatar generation, producing lifelike avatars that talk, react, and persist seamlessly over hours. \vspace{2em}
+}
+\label{fig:teaser}
+}]
+
+% \maketitle
+
+
+\input{sec/0_abstract}    
+\input{sec/1_intro}
+\input{sec/2_related_works}
+\input{sec/3_methods_ft}
+\input{sec/4_experimtents_jm}
+\input{sec/5_conclusion}
+\input{sec/X_suppl}
+\clearpage
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{main}
+}
+
+% WARNING: do not forget to delete the supplementary pages from your submission 
+% \input{sec/X_suppl}
+
+\end{document}
